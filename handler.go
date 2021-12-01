@@ -23,7 +23,7 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 	}
 }
 
-func YAMLHandler(yaml_in []byte, fallback http.Handler) (http.HandlerFunc, error) {
+func YamlHandler(yaml_in []byte, fallback http.Handler) (http.HandlerFunc, error) {
 	// 1. parse the yaml
 	var pus []pathUrl
 	err := yaml.Unmarshal(yaml_in, &pus)
