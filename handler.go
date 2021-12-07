@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/go-yaml/yaml"
+	_ "github.com/lib/pq"
 )
 
 func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
