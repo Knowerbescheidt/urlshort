@@ -1,4 +1,4 @@
-package urlshort
+package main
 
 import (
 	"database/sql"
@@ -15,7 +15,6 @@ func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.Handl
 
 	return func(w http.ResponseWriter, r *http.Request) {
 		path := r.URL.Path
-
 		// the ok is true or false depending on if it finds a value in the map
 		if dest, ok := pathsToUrls[path]; ok {
 			http.Redirect(w, r, dest, http.StatusFound)
@@ -59,11 +58,7 @@ type pathUrl struct {
 	URL  string `yaml:"url`
 }
 
-func DbHandler() {
-	connectToDb()
-}
-
-func connectToDb() {
+func ConnectToDb() *sql.DB {
 	host := "127.0.0.1"
 	port := "5432"
 	user := "postgres"
@@ -75,11 +70,24 @@ func connectToDb() {
 	if err != nil {
 		log.Fatalf("Tidak Konek DB Errornya : %s", err)
 	}
+	return db
+}
+
+func RetrieveData(db *sql.DB) map[string]string {
 	sql_get := "SELECT * FROM pathmap"
-	data, err := db.Query(sql_get)
+	rows, err := db.Query(sql_get)
 	if err != nil {
 		fmt.Println("Erroor with executing query")
 		os.Exit(2)
 	}
-	fmt.Println(data)
+	var pathUrls []pathUrl
+	for rows.Next() {
+		pathurl_row := pathUrl{}
+		rows.Scan(&pathurl_row.Path, &pathurl_row.URL)
+		pathurl_row.Path
+		strings.
+			pathUrls = append(pathUrls, pathurl_row)
+	}
+	resultMap := convertArrayToMap(pathUrls)
+	return resultMap
 }

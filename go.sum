@@ -1,3 +1,5 @@
+github.com/Knowerbescheidt/urlshort v0.0.0-20211207070736-78f165575431 h1:xU/0KJ/3FPnNDHjn7HLi4NOXJmH3hmzSf5w7KTJqDMk=
+github.com/Knowerbescheidt/urlshort v0.0.0-20211207070736-78f165575431/go.mod h1:aKqkJ+OBDSZmgyxHOLpu6JoiJuxJ8vA0YTPS4IE9j+Q=
 github.com/go-yaml/yaml v2.1.0+incompatible h1:RYi2hDdss1u4YE7GwixGzWwVo47T8UQwnTLB6vQiq+o=
 github.com/go-yaml/yaml v2.1.0+incompatible/go.mod h1:w2MrLa16VYP0jy6N7M5kHaCkaLENm+P+Tv+MfurjSw0=
 github.com/kr/pretty v0.2.1 h1:Fmg33tUaq4/8ym9TJN1x7sLJnHVwhP33CNkpYV/7rwI=
